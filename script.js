@@ -37,6 +37,7 @@ const prices = {
     'Iconnet Seru-3 100Mbps': { '100Mbps': 1086690 }
 };
 
+// agar harganya bisa berfungsi
 function getPrice(jenisPaket, kecepatan) {
     if (!jenisPaket) return null;
     
@@ -74,8 +75,8 @@ function getPrice(jenisPaket, kecepatan) {
 
 function calculatePrice() {
     const kecepatan = document.getElementById('kecepatan')?.value;
-    // Mengambil nilai dari input hidden
-    const jenisPaket = document.getElementById('jenisPaket')?.value;
+    const jenisPaketSelect = document.getElementById('jenisPaket');
+    const jenisPaket = jenisPaketSelect?.value;
     
     const hargaDisplay = document.getElementById('hargaDisplay'); 
     const totalBiayaDisplay = document.getElementById('totalBiayaDisplay'); 
@@ -193,22 +194,10 @@ function validateField(input) {
     }
     else if (input.id === 'nomorMeteranPln' && value && !/^\d{12}$/.test(value)) { valid = false; msg = 'Nomor Meteran PLN harus 12 digit.'; }
     
+    // Validasi Kecepatan (hanya jika elemennya terlihat)
     if (input.id === 'kecepatan' && document.getElementById('kecepatanContainer').style.display !== 'none' && isRequired && !value) {
         valid = false; msg = 'Harap pilih kecepatan internet';
     }
-
-    // --- VALIDASI TAMBAHAN UNTUK JENIS PAKET (RADIO BUTTONS) ---
-    if (input.id === 'jenisPaket' && isRequired && !value) { 
-        valid = false; 
-        msg = 'Harap pilih jenis paket.';
-        // Tambahkan is-invalid ke container jika validation error
-        const container = document.getElementById('jenisPaketContainer');
-        if(container) container.classList.add('is-invalid-container');
-    } else if (input.id === 'jenisPaket') {
-        const container = document.getElementById('jenisPaketContainer');
-        if(container) container.classList.remove('is-invalid-container');
-    }
-    // -----------------------------------------------------------
 
 
     if (!valid) input.classList.add('is-invalid');
@@ -220,24 +209,21 @@ function validateField(input) {
 
 // fungsi utama display dan validasi paket
 function handlePackageSelection() {
-    // Mengambil nilai dari input hidden, yang diperbarui oleh radio
-    const jenisPaket = document.getElementById('jenisPaket')?.value; 
-    
+    const jenisPaketSelect = document.getElementById('jenisPaket');
     const kecepatanSelect = document.getElementById('kecepatan');
     const kecepatanContainer = document.getElementById('kecepatanContainer');
+    const selectedOption = jenisPaketSelect?.options[jenisPaketSelect.selectedIndex];
     
-    let isSeruPackage = jenisPaket?.includes('Iconnet Seru'); 
-    
+    const jenisPaket = jenisPaketSelect?.value;
 
     // menampilkan/menyembunyikan dropdown kecepatan
-    if (isSeruPackage) {
+    if (jenisPaket?.includes('Iconnet Seru')) {
         kecepatanContainer.style.display = 'none';
         kecepatanSelect.removeAttribute('required');
         
-        // Coba ekstrak kecepatan dari nama paket (misal: "Iconnet Seru 35Mbps")
         const speedMatch = jenisPaket.match(/(\d+)Mbps/);
         if (speedMatch) {
-            kecepatanSelect.value = speedMatch[0]; 
+            kecepatanSelect.value = speedMatch[0];
         }
     } else {
         kecepatanContainer.style.display = 'block';
@@ -258,22 +244,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('regForm');
     const submitBtn = document.getElementById('submitBtn');
     const inputs = form ? form.querySelectorAll('input, select, textarea') : [];
-    
-    const jenisPaketContainer = document.getElementById('jenisPaketContainer');
-    const jenisPaketHiddenInput = document.getElementById('jenisPaket');
 
+    // EVENT LISTENER UNTUK DROPDOWN <select>
     document.getElementById('kecepatan')?.addEventListener('change', calculatePrice);
-    
-    // BARU: Event Listener untuk Radio Buttons
-    if (jenisPaketContainer) {
-        jenisPaketContainer.addEventListener('change', (e) => {
-            if (e.target.name === 'jenisPaketRadio' && e.target.checked) {
-                // Update nilai input hidden saat radio button dipilih
-                jenisPaketHiddenInput.value = e.target.value; 
-                handlePackageSelection(); 
-            }
-        });
-    }
+    document.getElementById('jenisPaket')?.addEventListener('change', handlePackageSelection); // Listener aktif
 
     inputs.forEach(inp => {
         inp.addEventListener('blur', () => validateField(inp));
@@ -288,15 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
     form?.addEventListener('submit', async e => {
         e.preventDefault();
         let valid = true;
-        
-        // PENTING: Validasi input hidden 'jenisPaket' secara eksplisit
-        if (!validateField(jenisPaketHiddenInput)) valid = false; 
-        
-        inputs.forEach(inp => { 
-             // Hindari memvalidasi input hidden jenisPaket di sini karena sudah divalidasi di atas
-             if(inp.id !== 'jenisPaket' && !validateField(inp)) valid = false; 
-        });
-        
+        inputs.forEach(inp => { if (!validateField(inp)) valid = false; });
         if (!valid) return showToast('error', 'Perbaiki form sebelum submit.');
 
         submitBtn.disabled = true;
@@ -305,14 +271,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const formData = {};
         inputs.forEach(inp => { 
             if (inp.id) {
-                // Logika pengiriman data untuk jenisPaket
-                if (inp.id === 'jenisPaket') {
-                    formData[inp.id] = inp.value.trim();
-                } 
-                // Logika pengiriman data untuk kecepatan
-                else if (inp.id === 'kecepatan' && document.getElementById('kecepatanContainer').style.display === 'none') {
-                    const jenisPaketValue = document.getElementById('jenisPaket').value;
-                    const speedMatch = jenisPaketValue.match(/(\d+)Mbps/);
+                if (inp.id === 'kecepatan' && document.getElementById('kecepatanContainer').style.display === 'none') {
+                    const jenisPaket = document.getElementById('jenisPaket').value;
+                    const speedMatch = jenisPaket.match(/(\d+)Mbps/);
                     if (speedMatch) {
                         formData[inp.id] = speedMatch[0];
                     }
