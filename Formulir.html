@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Pendaftaran Pemasangan Internet - Iconnet</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css"> 
+    
+</head>
+<body class="bg-light">
+    <div class="container my-4">
+        <div class="form-container shadow-lg">
+            
+            <img id="logoKiri" src="logo/Iconnet_logo.png" alt="Logo Iconnet">
+            <img id="logoPln" src="logo/PLN_LOGO.jpg" alt="Logo PLN">
+
+            <div class="text-center mb-4">
+                <h2 class="text-primary"><i class="fas fa-wifi me-2"></i>Formulir Pendaftaran Pemasangan Iconnet</h2>
+                <p class="text-muted">Isi data lengkap. Data akan disimpan ke database & notifikasi dikirim ke Admin.</p>
+            </div>
+
+            <form id="regForm" novalidate>
+                <div class="mb-4 form-section">
+                    <h5 class="border-bottom pb-2"><i class="fas fa-user me-2"></i>Data Pelanggan</h5>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="nama" class="form-label">Nama Sesuai KTP <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="nama" required>
+                            <div class="invalid-feedback">Harap isi nama sesuai KTP</div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="noKtp" class="form-label">No KTP <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="noKtp" placeholder="16 digit" maxlength="16" required>
+                            <div class="invalid-feedback">KTP harus 16 digit.</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="hp" class="form-label">No HP <span class="text-danger">*</span></label>
+                            <input type="tel" class="form-control" id="hp" placeholder="0877xxxxxxxx" required>
+                            <div class="invalid-feedback">Harap isi nomor HP yang valid</div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                            <input type="email" class="form-control" id="email" required>
+                            <div class="invalid-feedback">Harap isi alamat email yang valid</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="nomorMeteranPln" class="form-label">Nomor Meteran PLN</label>
+                            <input type="text" class="form-control" id="nomorMeteranPln" placeholder="12 digit" maxlength="12">
+                            <div class="invalid-feedback">Harap isi nomor meteran PLN yang valid (12 digit)</div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="pekerjaan" class="form-label">Pekerjaan</label>
+                            <input type="text" class="form-control" id="pekerjaan">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-4 form-section">
+                    <h5 class="border-bottom pb-2"><i class="fas fa-box me-2"></i>Paket & Lokasi Pemasangan</h5>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="jenisPaket" class="form-label">Jenis Paket <span class="text-danger">*</span></label>
+                            <select class="form-select" id="jenisPaket" required>
+                                <option value="">Pilih...</option>
+                                
+                                <optgroup label="Paket Iconnet Seru (Bulanan + Instalasi Rp 250k)">
+                                    <option value="Iconnet Seru 10Mbps">10 Mbps (Rp 187.590/bln)</option>
+                                    <option value="Iconnet Seru 20Mbps">20 Mbps (Rp 198.690/bln)</option>
+                                    <option value="Iconnet Seru 35Mbps">35 Mbps (Rp 220.890/bln)</option>
+                                    <option value="Iconnet Seru 50Mbps">50 Mbps (Rp 276.390/bln)</option>
+                                    <option value="Iconnet Seru 100Mbps">100 Mbps (Rp 365.190/bln)</option>
+                                </optgroup>
+                                
+                                <optgroup label="Paket Iconnet Seru-3 (Bundling 3 Bulan, Free Instalasi)">
+                                    <option value="Iconnet Seru-3 10Mbps">10 Mbps (Rp 553.890 / 3 bln)</option>
+                                    <option value="Iconnet Seru-3 20Mbps">20 Mbps (Rp 587.190 / 3 bln)</option>
+                                    <option value="Iconnet Seru-3 35Mbps">35 Mbps (Rp 642.690 / 3 bln)</option>
+                                    <option value="Iconnet Seru-3 50Mbps">50 Mbps (Rp 809.190 / 3 bln)</option>
+                                    <option value="Iconnet Seru-3 100Mbps">100 Mbps (Rp 1.086.690 / 3 bln)</option>
+                                </optgroup>
+                                
+                                <optgroup label="Paket Lainnya (Min. 35 Mbps)">
+                                    <option value="Paket Reguler">Paket Reguler (Bayar Bulanan)</option>
+                                    <option value="Iconnet Hebat 3 Bulan">Iconnet Hebat (Bayar 3 Bulan)</option>
+                                    <option value="Iconnet Hebat 6 Bulan">Iconnet Hebat (Bayar 6 Bulan)</option>
+                                    <option value="Iconnet Hebat 12 Bulan">Iconnet Hebat (Bayar 12 Bulan)</option>
+                                    <option value="Iconnet Hebat 24 Bulan">Iconnet Hebat (Bayar 24 Bulan)</option>
+                                </optgroup>
+                            </select>
+                            <div class="invalid-feedback">Harap pilih jenis paket</div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3" id="kecepatanContainer">
+                            <label for="kecepatan" class="form-label">Kecepatan yang Dipilih <span class="text-danger">*</span></label>
+                            <select class="form-select" id="kecepatan" required>
+                                <option value="">Pilih...</option>
+                                <option value="35Mbps">35 Mbps</option>
+                                <option value="50Mbps">50 Mbps</option>
+                                <option value="100Mbps">100 Mbps</option>
+                            </select>
+                            <div class="invalid-feedback">Harap pilih kecepatan internet</div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-light p-2 mb-3" id="hargaDisplay">
+                        <small class="text-muted">Pilih paket untuk lihat harga.</small>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="alamat" class="form-label">Alamat Pemasangan <span class="text-danger">*</span></label>
+                        <textarea class="form-control" id="alamat" rows="3" required placeholder="Contoh: Jl.Campuan Asri IV F"></textarea>
+                        <div class="invalid-feedback">Harap isi alamat pemasangan</div>
+                    </div>
+                    
+                    <div class="alert alert-info mt-3" id="totalBiayaDisplay" style="display: none;">
+                        <strong>Total Biaya: <span id="totalBiaya">Rp 0</span></strong>
+                    </div>
+                </div>
+
+                <div class="mb-4 form-section">
+                    <h5 class="border-bottom pb-2"><i class="fas fa-users me-2"></i>Kontak Keluarga</h5>
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label for="namaKeluarga" class="form-label">Nama Keluarga</label>
+                            <input type="text" class="form-control" id="namaKeluarga" placeholder="Contoh: Malika">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="hpKeluarga" class="form-label">Nomor Telepon Keluarga</label>
+                            <input type="tel" class="form-control" id="hpKeluarga" placeholder="0819xxxxxxxx">
+                            <div class="invalid-feedback">Nomor HP tidak valid.</div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="statusKeluarga" class="form-label">Status Keluarga</label>
+                            <select class="form-select" id="statusKeluarga">
+                                <option value="">Pilih...</option>
+                                <option value="Ayah">Ayah</option>
+                                <option value="Ibu">Ibu</option>
+                                <option value="Saudara">Saudara</option>
+                                <option value="Anak">Anak</option>
+                                <option value="Pasangan">Pasangan</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">
+                        <i class="fas fa-cloud-upload-alt me-2"></i> Simpan Data & Notifikasi Admin
+                    </button>
+                </div>
+            </form>
+
+            <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                <div id="successToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        <strong class="me-auto">Sukses</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+                    </div>
+                    <div class="toast-body"></div>
+                </div>
+                <div id="errorToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                        <i class="fas fa-exclamation-triangle text-danger me-2"></i>
+                        <strong class="me-auto">Error</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+                    </div>
+                    <div class="toast-body"></div>
+                </div>
+                <div id="infoToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                        <i class="fas fa-info-circle text-info me-2"></i>
+                        <strong class="me-auto">Info</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+                    </div>
+                    <div class="toast-body"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="script.js"></script> 
+    
+</body>
+</html>
