@@ -56,7 +56,6 @@ body {
     font-size: 1.5rem; 
     border-radius: 50px; 
     font-weight: bold;
-    /* Warna kuning dijamin muncul dengan !important */
     background-color: #ffc107 !important; 
     color: #333 !important; 
     border: none;
@@ -88,18 +87,52 @@ body {
     padding: 12px 30px;
     font-weight: 600;
     border-radius: 50px;
-    
-    /* Tambahkan transition untuk animasi hover yang halus */
     transition: all 0.3s ease; 
 }
 
 .btn-primary:hover {
     background: linear-gradient(135deg, #4ea3ff 0%, #004085 100%);
-    /* Efek tombol naik */
     transform: translateY(-3px); 
-    /* Bayangan untuk efek terangkat */
     box-shadow: 0 8px 20px rgba(58, 95, 135, 0.5); 
 }
+
+/* ========================================================= */
+/* CSS TAMBAHAN UNTUK RADIO BUTTONS (Pengganti Dropdown Paket) */
+/* ========================================================= */
+.package-option {
+    cursor: pointer;
+}
+
+/* Sembunyikan radio button asli */
+.package-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Styling List Group Item saat radio button di dalamnya terpilih */
+.package-option input[type="radio"]:checked ~ div {
+    background-color: #e0f7fa; /* Warna latar belakang lembut saat terpilih */
+    border-color: #00bcd4; /* Warna border saat terpilih */
+    font-weight: bold;
+}
+
+/* Posisikan radio button icon bawaan Bootstrap */
+.package-option .form-check-input {
+    float: right;
+    margin-top: 0.2rem;
+}
+
+.list-group-item:first-child {
+    margin-top: 0 !important;
+}
+
+/* Style untuk penanda validasi error pada container paket */
+.is-invalid-container {
+    border: 1px solid #dc3545 !important;
+    border-radius: 0.25rem;
+}
+
 
 /* ========================================================= */
 /* MEDIA QUERIES (RESPONSIVE DESIGN) - PERBAIKAN FINAL LOGO */
@@ -109,11 +142,9 @@ body {
 @media (max-width: 768px) {
     .form-container {
         margin: 20px 10px;
-        /* Padding lebih kecil dari desktop */
         padding-top: 40px; 
     }
     
-    /* Logo di Tablet - Tetap Tampil, diperkecil */
     #logoKiri {
         top: 20px; 
         left: 20px;
@@ -125,7 +156,6 @@ body {
         max-width: 100px; 
     }
     
-    /* Judul Form di Mobile/Tablet */
     .form-container h2 {
         font-size: 1.5rem;
     }
@@ -133,13 +163,13 @@ body {
 
 /* Untuk layar ponsel (Penyembunyian Logo) */
 @media (max-width: 576px) {
+    /* SEMBUNYIKAN LOGO di mobile untuk mencegah bug layout */
     #logoKiri,
     #logoPln {
         display: none !important;
     }
-
+    
     .form-container {
-  
         padding-top: 30px; 
         padding: 15px;
         margin: 10px;

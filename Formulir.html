@@ -67,36 +67,86 @@
                     <h5 class="border-bottom pb-2"><i class="fas fa-box me-2"></i>Paket & Lokasi Pemasangan</h5>
                     
                     <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label for="jenisPaket" class="form-label">Jenis Paket <span class="text-danger">*</span></label>
-                            <select class="form-select" id="jenisPaket" required>
-                                <option value="">Pilih...</option>
+                        <div class="col-md-12 mb-3"> 
+                            <label class="form-label fw-bold">Pilih Jenis Paket <span class="text-danger">*</span></label>
+                            
+                            <div id="jenisPaketContainer" class="list-group shadow-sm">
+
+                                <div class="list-group-item bg-light fw-bold text-primary py-2 mt-2">
+                                    <i class="fas fa-money-bill me-2"></i> Paket Iconnet Seru (Bulanan + Instalasi Rp 250k)
+                                </div>
+                                <label class="list-group-item list-group-item-action form-check p-3 package-option">
+                                    <input class="form-check-input me-3" type="radio" name="jenisPaketRadio" value="Iconnet Seru 10Mbps" required>
+                                    <div><strong>10 Mbps</strong> <span class="text-muted small">(Rp 187.590/bln)</span></div>
+                                </label>
+                                <label class="list-group-item list-group-item-action form-check p-3 package-option">
+                                    <input class="form-check-input me-3" type="radio" name="jenisPaketRadio" value="Iconnet Seru 20Mbps" required>
+                                    <div><strong>20 Mbps</strong> <span class="text-muted small">(Rp 198.690/bln)</span></div>
+                                </label>
+                                <label class="list-group-item list-group-item-action form-check p-3 package-option">
+                                    <input class="form-check-input me-3" type="radio" name="jenisPaketRadio" value="Iconnet Seru 35Mbps" required>
+                                    <div><strong>35 Mbps</strong> <span class="text-muted small">(Rp 220.890/bln)</span></div>
+                                </label>
+                                <label class="list-group-item list-group-item-action form-check p-3 package-option">
+                                    <input class="form-check-input me-3" type="radio" name="jenisPaketRadio" value="Iconnet Seru 50Mbps" required>
+                                    <div><strong>50 Mbps</strong> <span class="text-muted small">(Rp 276.390/bln)</span></div>
+                                </label>
+                                <label class="list-group-item list-group-item-action form-check p-3 package-option">
+                                    <input class="form-check-input me-3" type="radio" name="jenisPaketRadio" value="Iconnet Seru 100Mbps" required>
+                                    <div><strong>100 Mbps</strong> <span class="text-muted small">(Rp 365.190/bln)</span></div>
+                                </label>
                                 
-                                <optgroup label="Paket Iconnet Seru (Bulanan + Instalasi Rp 250k)">
-                                    <option value="Iconnet Seru 10Mbps">10 Mbps (Rp 187.590/bln)</option>
-                                    <option value="Iconnet Seru 20Mbps">20 Mbps (Rp 198.690/bln)</option>
-                                    <option value="Iconnet Seru 35Mbps">35 Mbps (Rp 220.890/bln)</option>
-                                    <option value="Iconnet Seru 50Mbps">50 Mbps (Rp 276.390/bln)</option>
-                                    <option value="Iconnet Seru 100Mbps">100 Mbps (Rp 365.190/bln)</option>
-                                </optgroup>
+                                <div class="list-group-item bg-light fw-bold text-primary py-2 mt-3">
+                                    <i class="fas fa-gift me-2"></i> Paket Iconnet Seru-3 (Bundling 3 Bulan, Free Instalasi)
+                                </div>
+                                <label class="list-group-item list-group-item-action form-check p-3 package-option">
+                                    <input class="form-check-input me-3" type="radio" name="jenisPaketRadio" value="Iconnet Seru-3 10Mbps" required>
+                                    <div><strong>10 Mbps</strong> <span class="text-muted small">(Rp 553.890 / 3 bln)</span></div>
+                                </label>
+                                <label class="list-group-item list-group-item-action form-check p-3 package-option">
+                                    <input class="form-check-input me-3" type="radio" name="jenisPaketRadio" value="Iconnet Seru-3 20Mbps" required>
+                                    <div><strong>20 Mbps</strong> <span class="text-muted small">(Rp 587.190 / 3 bln)</span></div>
+                                </label>
+                                <label class="list-group-item list-group-item-action form-check p-3 package-option">
+                                    <input class="form-check-input me-3" type="radio" name="jenisPaketRadio" value="Iconnet Seru-3 35Mbps" required>
+                                    <div><strong>35 Mbps</strong> <span class="text-muted small">(Rp 642.690 / 3 bln)</span></div>
+                                </label>
+                                <label class="list-group-item list-group-item-action form-check p-3 package-option">
+                                    <input class="form-check-input me-3" type="radio" name="jenisPaketRadio" value="Iconnet Seru-3 50Mbps" required>
+                                    <div><strong>50 Mbps</strong> <span class="text-muted small">(Rp 809.190 / 3 bln)</span></div>
+                                </label>
+                                <label class="list-group-item list-group-item-action form-check p-3 package-option">
+                                    <input class="form-check-input me-3" type="radio" name="jenisPaketRadio" value="Iconnet Seru-3 100Mbps" required>
+                                    <div><strong>100 Mbps</strong> <span class="text-muted small">(Rp 1.086.690 / 3 bln)</span></div>
+                                </label>
+
+                                <div class="list-group-item bg-light fw-bold text-primary py-2 mt-3">
+                                    <i class="fas fa-star me-2"></i> Paket Lainnya (Pilih Kecepatan di bawah)
+                                </div>
+                                <label class="list-group-item list-group-item-action form-check p-3 package-option">
+                                    <input class="form-check-input me-3" type="radio" name="jenisPaketRadio" value="Paket Reguler" required>
+                                    <div><strong>Paket Reguler</strong> <span class="text-muted small">(Bayar Bulanan)</span></div>
+                                </label>
+                                <label class="list-group-item list-group-item-action form-check p-3 package-option">
+                                    <input class="form-check-input me-3" type="radio" name="jenisPaketRadio" value="Iconnet Hebat 3 Bulan" required>
+                                    <div><strong>Iconnet Hebat 3 Bulan</strong> <span class="text-muted small">(Bayar 3 Bulan)</span></div>
+                                </label>
+                                <label class="list-group-item list-group-item-action form-check p-3 package-option">
+                                    <input class="form-check-input me-3" type="radio" name="jenisPaketRadio" value="Iconnet Hebat 6 Bulan" required>
+                                    <div><strong>Iconnet Hebat 6 Bulan</strong> <span class="text-muted small">(Bayar 6 Bulan)</span></div>
+                                </label>
+                                <label class="list-group-item list-group-item-action form-check p-3 package-option">
+                                    <input class="form-check-input me-3" type="radio" name="jenisPaketRadio" value="Iconnet Hebat 12 Bulan" required>
+                                    <div><strong>Iconnet Hebat 12 Bulan</strong> <span class="text-muted small">(Bayar 12 Bulan)</span></div>
+                                </label>
+                                <label class="list-group-item list-group-item-action form-check p-3 package-option">
+                                    <input class="form-check-input me-3" type="radio" name="jenisPaketRadio" value="Iconnet Hebat 24 Bulan" required>
+                                    <div><strong>Iconnet Hebat 24 Bulan</strong> <span class="text-muted small">(Bayar 24 Bulan)</span></div>
+                                </label>
                                 
-                                <optgroup label="Paket Iconnet Seru-3 (Bundling 3 Bulan, Free Instalasi)">
-                                    <option value="Iconnet Seru-3 10Mbps">10 Mbps (Rp 553.890 / 3 bln)</option>
-                                    <option value="Iconnet Seru-3 20Mbps">20 Mbps (Rp 587.190 / 3 bln)</option>
-                                    <option value="Iconnet Seru-3 35Mbps">35 Mbps (Rp 642.690 / 3 bln)</option>
-                                    <option value="Iconnet Seru-3 50Mbps">50 Mbps (Rp 809.190 / 3 bln)</option>
-                                    <option value="Iconnet Seru-3 100Mbps">100 Mbps (Rp 1.086.690 / 3 bln)</option>
-                                </optgroup>
-                                
-                                <optgroup label="Paket Lainnya (Min. 35 Mbps)">
-                                    <option value="Paket Reguler">Paket Reguler (Bayar Bulanan)</option>
-                                    <option value="Iconnet Hebat 3 Bulan">Iconnet Hebat (Bayar 3 Bulan)</option>
-                                    <option value="Iconnet Hebat 6 Bulan">Iconnet Hebat (Bayar 6 Bulan)</option>
-                                    <option value="Iconnet Hebat 12 Bulan">Iconnet Hebat (Bayar 12 Bulan)</option>
-                                    <option value="Iconnet Hebat 24 Bulan">Iconnet Hebat (Bayar 24 Bulan)</option>
-                                </optgroup>
-                            </select>
-                            <div class="invalid-feedback">Harap pilih jenis paket</div>
+                                <input type="hidden" id="jenisPaket" name="jenisPaket" required>
+                            </div>
+                            <div class="invalid-feedback">Harap pilih salah satu paket.</div>
                         </div>
                         
                         <div class="col-md-6 mb-3" id="kecepatanContainer">
@@ -131,7 +181,7 @@
                     <div class="row">
                         <div class="col-md-4 mb-3">
                             <label for="namaKeluarga" class="form-label">Nama Keluarga</label>
-                            <input type="text" class="form-control" id="namaKeluarga" placeholder="Contoh: Malika">
+                            <input type="text" class="form-control" id="namaKeluarga" placeholder="Contoh: Gung Sri">
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="hpKeluarga" class="form-label">Nomor Telepon Keluarga</label>
