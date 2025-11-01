@@ -21,7 +21,7 @@ body {
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     position: relative;
-    padding-top: 120px;
+    padding-top: 120px; /* Default untuk desktop */
 }
 
 /* --- STYLING LOGO (Digunakan di Formulir.html) --- */
@@ -29,7 +29,7 @@ body {
     position: absolute;
     top: 40px;
     left: 40px;
-    max-width: 150px;
+    max-width: 150px; /* Default untuk desktop */
     height: auto;
     z-index: 99;
     transition: transform 0.3s ease;
@@ -39,7 +39,7 @@ body {
     position: absolute;
     top: 25px;
     right: 25px;
-    max-width: 150px;
+    max-width: 150px; /* Default untuk desktop */
     height: auto;
     z-index: 99;
     transition: transform 0.3s ease;
@@ -87,41 +87,52 @@ body {
     padding: 12px 30px;
     font-weight: 600;
     border-radius: 50px;
-    
-    /* PENTING: Tambahkan transition agar perubahannya halus */
     transition: all 0.3s ease; 
 }
 
 .btn-primary:hover {
-    /* Ganti background saat hover */
     background: linear-gradient(135deg, #4ea3ff 0%, #004085 100%);
-    
-    /* EFEK NAIK: Menggeser tombol ke atas sebanyak 3 pixel */
     transform: translateY(-3px); 
-    
-    /* EFEK BAYANGAN: Membuat bayangan lebih besar agar terlihat terangkat */
     box-shadow: 0 8px 20px rgba(58, 95, 135, 0.5); 
 }
 
-/* --- RESPONSIVE ADJUSTMENTS --- */
+/* ========================================================= */
+/* MEDIA QUERIES (RESPONSIVE DESIGN) */
+/* ========================================================= */
+
+/* Untuk layar tablet dan di bawahnya */
 @media (max-width: 768px) {
     .form-container {
         margin: 20px 10px;
-        padding-top: 70px;
+        padding-top: 80px; /* Ruang untuk logo yang lebih kecil */
+    }
+    #logoKiri {
+        top: 20px; 
+        left: 20px;
+        max-width: 120px; 
+    }
+    #logoPln {
+        top: 15px; 
+        right: 20px;
+        max-width: 120px; 
     }
 }
 
+/* Untuk layar ponsel */
 @media (max-width: 576px) {
-    #logoKiri,
-    #logoPln {
-        max-width: 100px;
-        top: 15px;
+    #logoKiri {
+        top: 15px; 
+        left: 15px;
+        max-width: 80px; /* Ukuran logo lebih kecil lagi */
     }
-    #logoKiri { left: 15px; }
-    #logoPln { right: 15px; }
+    #logoPln {
+        top: 10px; 
+        right: 15px;
+        max-width: 80px; /* Ukuran logo lebih kecil lagi */
+    }
     
     .form-container {
-        padding-top: 60px;
+        padding-top: 60px; /* Ruang untuk logo yang lebih kecil di mobile */
         padding: 15px;
     }
     
@@ -130,7 +141,7 @@ body {
         font-size: 1.3rem; 
     }
     
-    .btn-primary { /* Penyesuaian tombol submit di mobile */
+    .btn-primary { 
         width: 100%;
         font-size: 1rem;
         padding: 10px 20px;
