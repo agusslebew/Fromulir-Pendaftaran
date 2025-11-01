@@ -29,7 +29,7 @@ body {
     position: absolute;
     top: 40px;
     left: 40px;
-    max-width: 150px; 
+    max-width: 150px; /* Default untuk desktop */
     height: auto;
     z-index: 99;
     transition: transform 0.3s ease;
@@ -39,7 +39,7 @@ body {
     position: absolute;
     top: 25px;
     right: 25px;
-    max-width: 150px; 
+    max-width: 150px; /* Default untuk desktop */
     height: auto;
     z-index: 99;
     transition: transform 0.3s ease;
@@ -50,7 +50,7 @@ body {
     transform: scale(1.05);
 }
 
-/* --- HERO SECTION CTA BUTTON (index.html) --- */
+/* --- HERO SECTION CTA BUTTON (Digunakan di index.html) --- */
 .btn-cta {
     padding: 18px 50px; 
     font-size: 1.5rem; 
@@ -71,7 +71,7 @@ body {
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
 }
 
-/* --- FEATURE CARD (index.html) --- */
+/* --- FEATURE CARD (Digunakan di index.html) --- */
 .feature-card {
     transition: transform 0.3s ease;
 }
@@ -81,13 +81,15 @@ body {
     background-color: white;
 }
 
-/* --- BUTTON SUBMIT (Formulir.html) --- */
+/* --- BUTTON SUBMIT PADA FORMULIR (Digunakan di Formulir.html) --- */
 .btn-primary {
-    background: linear-gradient(135deg, #4ea3ff 0%, #0056b3 100%); 
+    background: linear-gradient(135deg, #4ea3ff 0%, #0056b3 100%); /* Warna gradient biru */
     border: none;
     padding: 12px 30px;
     font-weight: 600;
     border-radius: 50px;
+    
+    /* Tambahkan transition untuk animasi hover yang halus */
     transition: all 0.3s ease; 
 }
 
@@ -99,16 +101,8 @@ body {
     box-shadow: 0 8px 20px rgba(58, 95, 135, 0.5); 
 }
 
-/* --- STYLE UNTUK INVALID FEEDBACK / VALIDASI FORM --- */
-.invalid-feedback {
-    /* Kelas ini sudah diset oleh Bootstrap, hanya beberapa custom yang diperlukan */
-}
-.is-invalid ~ .invalid-feedback {
-    display: block;
-}
-
 /* ========================================================= */
-/* MEDIA QUERIES (RESPONSIVE DESIGN) */
+/* MEDIA QUERIES (RESPONSIVE DESIGN) - PERBAIKAN FINAL LOGO */
 /* ========================================================= */
 
 /* Untuk layar tablet dan di bawahnya */
@@ -139,14 +133,14 @@ body {
 
 /* Untuk layar ponsel (Penyembunyian Logo) */
 @media (max-width: 576px) {
-    /* SEMBUNYIKAN LOGO di mobile untuk mencegah bug layout */
     #logoKiri,
     #logoPln {
         display: none !important;
     }
-    
+
     .form-container {
-        padding-top: 30px; /* Ruang atas disesuaikan karena logo hilang */
+  
+        padding-top: 30px; 
         padding: 15px;
         margin: 10px;
     }
@@ -164,12 +158,5 @@ body {
         width: 100%;
         font-size: 1rem;
         padding: 10px 20px;
-    }
-    
-    /* Memastikan Total Biaya terlihat jelas di mobile */
-    #totalBiayaDisplay {
-        margin-top: 15px !important; 
-        margin-bottom: 15px !important;
-        padding: 10px 15px !important;
     }
 }
