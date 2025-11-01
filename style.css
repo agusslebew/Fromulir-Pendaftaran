@@ -56,6 +56,7 @@ body {
     font-size: 1.5rem; 
     border-radius: 50px; 
     font-weight: bold;
+    /* Warna kuning dijamin muncul dengan !important */
     background-color: #ffc107 !important; 
     color: #333 !important; 
     border: none;
@@ -87,55 +88,70 @@ body {
     padding: 12px 30px;
     font-weight: 600;
     border-radius: 50px;
+    
+    /* Tambahkan transition untuk animasi hover yang halus */
     transition: all 0.3s ease; 
 }
 
 .btn-primary:hover {
     background: linear-gradient(135deg, #4ea3ff 0%, #004085 100%);
+    /* Efek tombol naik */
     transform: translateY(-3px); 
+    /* Bayangan untuk efek terangkat */
     box-shadow: 0 8px 20px rgba(58, 95, 135, 0.5); 
 }
 
 /* ========================================================= */
-/* MEDIA QUERIES (RESPONSIVE DESIGN) */
+/* MEDIA QUERIES (RESPONSIVE DESIGN) - PERBAIKAN FINAL LOGO */
 /* ========================================================= */
 
 /* Untuk layar tablet dan di bawahnya */
 @media (max-width: 768px) {
     .form-container {
         margin: 20px 10px;
-        padding-top: 80px; /* Ruang untuk logo yang lebih kecil */
+        /* Padding lebih kecil dari desktop */
+        padding-top: 40px; 
     }
+    
+    /* Logo di Tablet - Tetap Tampil, diperkecil */
     #logoKiri {
         top: 20px; 
         left: 20px;
-        max-width: 120px; 
+        max-width: 100px; 
     }
     #logoPln {
         top: 15px; 
         right: 20px;
-        max-width: 120px; 
+        max-width: 100px; 
+    }
+    
+    /* Judul Form di Mobile/Tablet */
+    .form-container h2 {
+        font-size: 1.5rem;
     }
 }
 
-/* Untuk layar ponsel */
+/* Untuk layar ponsel (Penyembunyian Logo) */
 @media (max-width: 576px) {
-    #logoKiri {
-        top: 15px; 
-        left: 15px;
-        max-width: 80px; /* Ukuran logo lebih kecil lagi */
-    }
+    /* 1. SEMBUNYIKAN LOGO di mobile untuk mencegah bug layout */
+    #logoKiri,
     #logoPln {
-        top: 10px; 
-        right: 15px;
-        max-width: 80px; /* Ukuran logo lebih kecil lagi */
+        display: none !important;
     }
     
     .form-container {
-        padding-top: 60px; /* Ruang untuk logo yang lebih kecil di mobile */
+        /* Padding atas diatur ulang karena logo sudah hilang */
+        padding-top: 30px; 
         padding: 15px;
+        margin: 10px;
     }
     
+    /* 2. Sesuaikan Judul Form agar lebih kecil di mobile */
+    .form-container h2 {
+        font-size: 1.3rem;
+    }
+    
+    /* Tombol dan lainnya */
     .btn-cta {
         width: 100%;
         font-size: 1.3rem; 
