@@ -21,11 +21,11 @@
             background: linear-gradient(135deg, var(--dark-color) 0%, var(--primary-color) 100%); 
             color: white;
             padding: 120px 0 100px;
-            min-height: 90vh; /* Lebih tinggi */
+            min-height: 90vh; 
             display: flex;
             align-items: center;
             position: relative;
-            overflow: hidden; /* Mengatasi elemen di luar batas */
+            overflow: hidden; 
         }
         
         .hero-title {
@@ -58,33 +58,54 @@
         .feature-card {
             border: none;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Shadow yang lebih halus */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); 
             transition: transform 0.3s, box-shadow 0.3s;
         }
         .feature-card:hover {
-            transform: translateY(-8px); /* Efek naik lebih tinggi */
+            transform: translateY(-8px); 
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
+        
+        /* Styling untuk Button CTA di Hero dan Harga (Desktop Default) */
+        .cta-button-hero {
+            padding: 18px 50px; 
+            font-size: 1.3rem; 
+            font-weight: bold;
+            border-radius: 50px;
+            transition: all 0.3s ease; 
+        }
+        .cta-button-hero:hover {
+            transform: translateY(-5px); 
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); 
+        }
+
 
         /* Styling untuk Daftar Harga */
         .price-card {
             border: 2px solid var(--primary-color);
             border-radius: 15px;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s; 
             overflow: hidden;
+        }
+        .price-card:hover {
+            transform: translateY(-10px); 
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); 
         }
         .price-card.recommended {
             border-color: var(--secondary-color);
             box-shadow: 0 0 25px rgba(40, 167, 69, 0.4);
-            transform: scale(1.05);
+            transform: scale(1.05); 
+        }
+        .price-card.recommended:hover {
+            transform: scale(1.05) translateY(-10px); 
         }
         .price-header {
-            background-color: var(--primary-color); /* Default header color */
+            background-color: var(--primary-color); 
             color: white;
             padding: 20px;
         }
         .price-header.recommended {
-            background-color: var(--secondary-color); /* Recommended header color */
+            background-color: var(--secondary-color); 
         }
         .price-value {
             font-size: 3rem;
@@ -100,6 +121,44 @@
             border-bottom: 1px dashed #eee;
         }
 
+        /* Testimonial Card Styling */
+        .testimonial-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .carousel-control-prev-icon, .carousel-control-next-icon {
+            background-color: rgba(0,0,0,0.4);
+            border-radius: 50%;
+            padding: 1rem;
+        }
+        
+        /* ========================================================= */
+        /* MEDIA QUERY UNTUK MOBILE (PERBAIKAN TOMBOL HERO) */
+        /* ========================================================= */
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2.5rem; /* Mengecilkan Judul */
+            }
+            .cta-button-hero {
+                /* Mengurangi padding dan font size secara drastis */
+                padding: 12px 30px; 
+                font-size: 1.1rem;
+                width: 90%; /* Membuat tombol sedikit lebih sempit */
+                display: block; /* Memastikan tombol menjadi blok (lebar penuh) */
+                margin: 10px auto; /* Memberi jarak antar tombol */
+            }
+            .hero-section .row {
+                /* Memberi sedikit margin agar konten tidak terlalu menempel atas/bawah */
+                padding: 0 15px; 
+            }
+        }
     </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="56">
@@ -108,7 +167,6 @@
         <div class="container">
             <a class="navbar-brand fw-bold" href="index.html">
                 <img src="logo/Iconnet_logo.png" alt="Iconnet Logo" height="30" class="d-inline-block align-text-top me-2">
-                <span class="text-white">ICONNET</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -118,7 +176,6 @@
                     <li class="nav-item"><a class="nav-link" href="#layanan">Fitur</a></li>
                     <li class="nav-item"><a class="nav-link" href="#paket">Paket</a></li>
                     <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
-                    <li class="nav-item"><a class="nav-link btn btn-warning btn-sm ms-lg-2 px-4 fw-bold text-dark" href="Formulir.html">DAFTAR SEKARANG</a></li>
                 </ul>
             </div>
         </div>
@@ -132,7 +189,7 @@
                         Internet Terbaik untuk Kebutuhan Digital Anda.
                     </h1>
                     <p class="lead mb-5 fw-light opacity-75">
-                        *True Unlimited, 100% Fiber Optik,* Jaringan Terluas dan Paling Andal dari PLN Icon Plus.
+                        True Unlimited, 100% Fiber Optik, Jaringan Terluas dan Paling Andal dari PLN Icon Plus.
                     </p>
                     <a href="Formulir.html" class="btn btn-warning cta-button-hero text-dark shadow-lg me-3">
                         <i class="fas fa-rocket me-2"></i> CEK HARGA & DAFTAR
@@ -173,7 +230,7 @@
                     <div class="card feature-card p-4 h-100 bg-white">
                         <i class="fas fa-upload fa-3x text-primary mb-3"></i>
                         <h5 class="card-title fw-bold">Upload Cepat (Simetris)</h5>
-                        <p class="card-text text-muted">Kecepatan Upload dan Download yang hampir sama, ideal untuk WFH, *video conference*, dan *live streaming*.</p>
+                        <p class="card-text text-muted">Kecepatan Upload dan Download yang hampir sama, ideal untuk WFH, Video conference, dan Live streaming.</p>
                     </div>
                 </div>
                 
@@ -197,10 +254,83 @@
         </div>
     </section>
 
-    <section id="paket" class="py-5 bg-white">
+    <section id="testimoni" class="py-5 bg-white">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold text-dark">Apa Kata Pelanggan Kami?</h2>
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+                <div class="carousel-inner">
+                    
+                    <div class="carousel-item active">
+                        <div class="row justify-content-center">
+                            <div class="col-md-6 col-lg-4 mb-4">
+                                <div class="card testimonial-card p-4"> 
+                                    <p class="card-text fst-italic">"Sangat puas dengan Iconnet 35 Mbps. Buat WFH dan anak-anak sekolah daring jadi lancar jaya, harganya juga flat dan murah. Rekomended!"</p>
+                                    <footer class="blockquote-footer mt-2">Bapak Rudi, <cite title="Source Title">Jakarta Selatan</cite></footer>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4 mb-4 d-none d-md-block"> 
+                                <div class="card testimonial-card p-4">
+                                    <p class="card-text fst-italic">"Pindah dari provider lama karena sering FUP. Di Iconnet benar-benar unlimited. Gaming malam pun tidak ada penurunan kecepatan sama sekali. Mantap!"</p>
+                                    <footer class="blockquote-footer mt-2">Ibu Diah, <cite title="Source Title">Surabaya</cite></footer>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-md-6 col-lg-4 mb-4">
+                                <div class="card testimonial-card p-4">
+                                    <p class="card-text fst-italic">"Instalasi cepat, support responsif. Awalnya ragu, tapi ternyata Iconnet jauh lebih baik dari ekspektasi. Internet stabil buat semua kebutuhan keluarga."</p>
+                                    <footer class="blockquote-footer mt-2">Mas Andy, <cite title="Source Title">Bandung</cite></footer>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4 mb-4 d-none d-md-block"> 
+                                <div class="card testimonial-card p-4">
+                                    <p class="card-text fst-italic">"Harga Iconnet sangat bersaing, apalagi dapat true unlimited. Bisnis online saya jadi makin lancar karena upload dan download simetris. Top!"</p>
+                                    <footer class="blockquote-footer mt-2">Kak Citra, <cite title="Source Title">Medan</cite></footer>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="paket" class="py-5 bg-light">
         <div class="container">
             <h2 class="text-center mb-5 fw-bold text-dark">Paket Unggulan Bulan Ini</h2>
             <div class="row justify-content-center">
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card price-card text-center h-100 shadow">
+                        <div class="price-header">
+                            <h4 class="fw-normal">Iconnet 50</h4>
+                            <span class="badge bg-light text-primary mb-2">Pilihan Cepat</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="price-value text-primary">Rp 276.000</div>
+                            <p class="text-muted">/ bulan (Sudah termasuk PPN)</p>
+                            <ul>
+                                <li><i class="fas fa-check-circle text-success me-2"></i> Kecepatan 50 Mbps</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i> Unlimited tanpa FUP</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i> Gaming & Download Cepat</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i> Bonus Install Cepat</li>
+                            </ul>
+                            <a href="Formulir.html" class="btn btn-primary w-75 mt-3 cta-button-hero shadow-sm">PILIH & DAFTAR</a>
+                        </div>
+                    </div>
+                </div>
                 
                 <div class="col-md-4 mb-4">
                     <div class="card price-card recommended text-center h-100 shadow-lg">
@@ -212,7 +342,7 @@
                             <div class="price-value text-success">Rp 220.000</div>
                             <p class="text-muted">/ bulan (Sudah termasuk PPN)</p>
                             <ul>
-                                <li><i class="fas fa-check-circle text-success me-2"></i> Kecepatan **35 Mbps**</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i> Kecepatan 35 Mbps</li>
                                 <li><i class="fas fa-check-circle text-success me-2"></i> Unlimited tanpa FUP</li>
                                 <li><i class="fas fa-check-circle text-success me-2"></i> 4K Streaming Lancar</li>
                                 <li><i class="fas fa-check-circle text-success me-2"></i> Ideal untuk Keluarga Besar</li>
@@ -225,21 +355,42 @@
                 <div class="col-md-4 mb-4">
                     <div class="card price-card text-center h-100 shadow">
                         <div class="price-header">
-                            <h4 class="fw-normal">Iconnet 50</h4>
-                            <span class="badge bg-light text-primary mb-2">Pilihan Cepat</span>
+                            <h4 class="fw-normal">Iconnet 100</h4>
+                            <span class="badge bg-light text-primary mb-2">Performa Maksimal</span>
                         </div>
                         <div class="card-body">
-                            <div class="price-value text-primary">Rp 276.000</div>
+                            <div class="price-value text-dark">Rp 365.000</div>
                             <p class="text-muted">/ bulan (Sudah termasuk PPN)</p>
                             <ul>
-                                <li><i class="fas fa-check-circle text-success me-2"></i> Kecepatan **50 Mbps**</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i> Kecepatan 100 Mbps</li>
                                 <li><i class="fas fa-check-circle text-success me-2"></i> Unlimited tanpa FUP</li>
-                                <li><i class="fas fa-check-circle text-success me-2"></i> *Gaming* & Download Cepat</li>
-                                <li><i class="fas fa-check-circle text-success me-2"></i> Bonus *Install* Cepat</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i> Ideal untuk SOHO (Small Office)</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i> Smart Home dengan banyak perangkat</li>
                             </ul>
                             <a href="Formulir.html" class="btn btn-primary w-75 mt-3 cta-button-hero shadow-sm">PILIH & DAFTAR</a>
                         </div>
                     </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <section id="jaminan" class="py-5 bg-white text-center">
+        <div class="container">
+            <h2 class="fw-bold text-primary mb-4">Pendaftaran Bebas Risiko</h2>
+            <p class="lead mb-4 text-muted">Kami menjamin proses yang cepat, transparan, dan instalasi yang profesional.</p>
+            
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <i class="fas fa-undo fa-3x text-info mb-3"></i>
+                    <h5 class="fw-bold">Gratis Cek Lokasi</h5>
+                    <p class="text-muted small">Kami pastikan lokasi Anda tercover sebelum ada biaya yang dikenakan.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fas fa-truck-loading fa-3x text-info mb-3"></i>
+                    <h5 class="fw-bold">Instalasi Cepat</h5>
+                    <p class="text-muted small">Tim teknisi profesional akan menjadwalkan pemasangan dalam 1x24 jam.</p>
                 </div>
             </div>
         </div>
@@ -251,8 +402,8 @@
                 <div class="col-md-6">
                     <h5 class="text-warning mb-3">Kontak Admin Pendaftaran</h5>
                     <ul class="list-unstyled">
-                        <li><i class="fas fa-phone-alt me-2"></i> **Hubungi:** <a href="tel:08xxxxxxxxxx" class="text-white text-decoration-none">08XXXXXXXXXX</a></li>
-                        <li><i class="fab fa-whatsapp me-2"></i> **WhatsApp:** <a href="https://wa.me/628xxxxxxxxxx" target="_blank" class="text-white text-decoration-none">Klik untuk Chat</a></li>
+                        <li><i class="fas fa-phone-alt me-2"></i> Hubungi: <a href="tel:088971853745" class="text-white text-decoration-none">088971853745</a></li>
+                        <li><i class="fab fa-whatsapp me-2"></i> WhatsApp: <a href="https://wa.me/6288971853745" target="_blank" class="text-white text-decoration-none">Klik untuk Chat</a></li>
                     </ul>
                 </div>
                 <div class="col-md-6 text-md-end">
@@ -265,7 +416,7 @@
         </div>
     </footer>
     
-    <a href="https://wa.me/628xxxxxxxxxx" target="_blank" class="wa-sticky-btn text-white">
+    <a href="https://wa.me/6288971853745" target="_blank" class="wa-sticky-btn text-white">
         <i class="fab fa-whatsapp me-2 fa-lg"></i> Chat Admin
     </a>
 

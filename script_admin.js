@@ -1,14 +1,14 @@
-
+// Menggunakan Supabase client yang sama
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 
-
+// GANTI DENGAN KREDENSIAL SUPABASE ANDA
 const SUPABASE_URL = "https://gjkriltrssjglxqvhauj.supabase.co";  
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdqa3JpbHRyc3NqZ2x4cXZoYXVqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAyODE2NjcsImV4cCI6MjA3NTg1NzY2N30.8ixU45P5K-u3bjOPUycf6F3Har17hUzJM46jhgMGYeU";        
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-
-const ADMIN_PASSWORD = "12345678"; 
-
+// --- PASSWORD ADMIN SEMENTARA ---
+const ADMIN_PASSWORD = "1"; // PASTIKAN PASSWORD INI SESUAI DENGAN YANG ANDA ATUR
+// --------------------------------
 
 const dataBody = document.getElementById('dataBody');
 const loading = document.getElementById('loading');
@@ -19,14 +19,13 @@ const loginCard = document.getElementById('loginCard');
 const passwordError = document.getElementById('passwordError');
 
 
-
+// Fungsi utama untuk memuat data dari Supabase
 async function loadRegistrations() {
     dataBody.innerHTML = ''; 
     loading.style.display = 'block';
     errorMessage.style.display = 'none';
 
     try {
-        
         let { data: registrations, error } = await supabase
             .from('registrations')
             .select('*')
@@ -40,7 +39,6 @@ async function loadRegistrations() {
             registrations.forEach((row, index) => {
                 const tr = document.createElement('tr');
                 
-                // Format tanggal
                 const date = new Date(row.created_at).toLocaleString('id-ID', {
                     day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit'
                 });
@@ -49,9 +47,9 @@ async function loadRegistrations() {
                     <td>${index + 1}</td>
                     <td>${date}</td>
                     <td>${row.nama || '-'}</td>
-                    <td>${row.hp || '-'}</td>
+                    <td>${row.noKtp || '-'}</td>                           <td>${row.hp || '-'}</td>
                     <td>${row.email || '-'}</td>
-                    <td>${row.jenisPaket || '-'}</td>
+                    <td>${row.nomorMeteranPln || '-'}</td>                <td>${row.jenisPaket || '-'}</td>
                     <td>${row.kecepatan || '-'}</td>
                     <td>${row.alamat ? row.alamat.substring(0, 50) + '...' : '-'}</td>
                     <td>${row.hpKeluarga || '-'} (${row.statusKeluarga || ''})</td>
@@ -59,7 +57,7 @@ async function loadRegistrations() {
                 dataBody.appendChild(tr);
             });
         } else {
-            dataBody.innerHTML = '<tr><td colspan="9" class="text-center text-muted">Belum ada data pendaftaran yang masuk.</td></tr>';
+            dataBody.innerHTML = '<tr><td colspan="11" class="text-center text-muted">Belum ada data pendaftaran yang masuk.</td></tr>';
         }
 
     } catch (err) {
@@ -71,13 +69,14 @@ async function loadRegistrations() {
 }
 
 
+// --- LOGIKA LOGIN (Password Sederhana) ---
 function handleLogin(e) {
     e.preventDefault();
     const input = document.getElementById('adminPass');
     const password = input.value;
 
     if (password === ADMIN_PASSWORD) {
-       
+        // Login Sukses
         input.classList.remove('is-invalid');
         loginCard.style.display = 'none';
         adminContent.style.display = 'block';
@@ -85,19 +84,18 @@ function handleLogin(e) {
         
         loadRegistrations(); 
     } else {
-       
+        // Login Gagal
         input.classList.add('is-invalid');
         passwordError.style.display = 'block';
     }
 }
 
-
+// =========================================================
+// DOM READY
+// =========================================================
 document.addEventListener('DOMContentLoaded', () => {
-   
     if (loginForm) {
         loginForm.addEventListener('submit', handleLogin);
     }
-    
-    
     window.loadRegistrations = loadRegistrations; 
 });
