@@ -3,33 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iconnet - Internet Pilihan Anda</title>
+    <title>Iconnet - Internet Cepat & Stabil Pilihan Anda</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
+        /* CSS Tambahan untuk Home Page */
         .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('logo/hero_bg.jpg') no-repeat center center;
-            background-size: cover;
+            /* Menggunakan warna gradien dari brand Iconnet/PLN */
+            background: linear-gradient(135deg, #007bff 0%, #003c8f 100%); 
             color: white;
             padding: 100px 0;
-            min-height: 80vh;
+            min-height: 85vh;
             display: flex;
             align-items: center;
         }
-        .footer-section {
-            background-color: #2c3e50; /* Dark Blue/Grey */
-            color: #ecf0f1;
-            padding: 40px 0;
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
         }
-        /* Menggunakan logo yang sudah ada, diasumsikan user memiliki gambar hero_bg.jpg */
+        .features-section {
+            background-color: #f8f9fa;
+        }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand fw-bold" href="index.html">
                 <img src="logo/Iconnet_logo.png" alt="Iconnet Logo" height="30" class="d-inline-block align-text-top me-2">
                 ICONNET
             </a>
@@ -38,62 +40,64 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#layanan">Layanan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#formulir">Daftar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Kontak</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link active" href="#layanan">Layanan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Formulir.html">Daftar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     
     <header class="hero-section" id="hero">
-        <div class="container text-center">
-            <h1 class="display-3 fw-bold mb-3">Internet Cepat dan Stabil dari PLN</h1>
-            <p class="lead mb-4">Dapatkan pengalaman *streaming*, *gaming*, dan kerja terbaik dengan Iconnet, 100% Fiber Optik.</p>
-            <a href="Formulir.html" class="btn-cta">
-                <i class="fas fa-bolt me-2"></i> DAFTAR SEKARANG
-            </a>
+        <div class="container text-center text-lg-start">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <h1 class="hero-title mb-3 animate__animated animate__fadeInLeft">
+                        Internet 100% Fiber Optik di Jaringan PLN
+                    </h1>
+                    <p class="lead mb-4 fw-light">
+                        Koneksi super cepat, stabil, dan **Tanpa FUP** (Fair Usage Policy).
+                    </p>
+                    <a href="Formulir.html" class="btn-cta mb-3 me-3">
+                        <i class="fas fa-bolt me-2"></i> DAFTAR SEKARANG
+                    </a>
+                    <a href="#layanan" class="btn btn-outline-light btn-lg rounded-pill" style="padding: 18px 30px;">
+                        Lihat Paket <i class="fas fa-arrow-down ms-2"></i>
+                    </a>
+                </div>
+                <div class="col-lg-5 text-center mt-5 mt-lg-0">
+                    <i class="fas fa-satellite-dish fa-10x text-white opacity-75"></i>
+                </div>
+            </div>
         </div>
     </header>
 
-    <section id="layanan" class="py-5 bg-white">
+    <section id="layanan" class="features-section py-5">
         <div class="container">
-            <h2 class="text-center mb-5 text-primary">Kenapa Harus Iconnet?</h2>
+            <h2 class="text-center mb-5 fw-bold text-dark">Mengapa Memilih ICONNET?</h2>
             <div class="row text-center">
                 
                 <div class="col-lg-4 mb-4">
                     <div class="card feature-card p-4 h-100 border-0 shadow-sm">
-                        <div class="card-body">
-                            <i class="fas fa-tachometer-alt fa-3x text-info mb-3"></i>
-                            <h5 class="card-title fw-bold">Kecepatan Tinggi</h5>
-                            <p class="card-text">Pilihan paket hingga 100 Mbps untuk semua kebutuhan digital Anda tanpa batas kuota (Unlimited).</p>
-                        </div>
+                        <i class="fas fa-signal fa-3x text-success mb-3"></i>
+                        <h5 class="card-title fw-bold">Koneksi Stabil</h5>
+                        <p class="card-text text-muted">Didukung oleh jaringan PLN, menjamin *uptime* dan stabilitas terbaik untuk WFH dan *gaming*.</p>
                     </div>
                 </div>
                 
                 <div class="col-lg-4 mb-4">
                     <div class="card feature-card p-4 h-100 border-0 shadow-sm">
-                        <div class="card-body">
-                            <i class="fas fa-wifi fa-3x text-primary mb-3"></i>
-                            <h5 class="card-title fw-bold">Jaringan Luas</h5>
-                            <p class="card-text">Didukung oleh jaringan PLN yang terluas, memastikan koneksi stabil hingga ke pelosok wilayah.</p>
-                        </div>
+                        <i class="fas fa-infinity fa-3x text-danger mb-3"></i>
+                        <h5 class="card-title fw-bold">True Unlimited</h5>
+                        <p class="card-text text-muted">Bebas dari batasan kuota dan FUP yang menyebalkan. *Streaming* sepuasnya.</p>
                     </div>
                 </div>
                 
                 <div class="col-lg-4 mb-4">
                     <div class="card feature-card p-4 h-100 border-0 shadow-sm">
-                        <div class="card-body">
-                            <i class="fas fa-wallet fa-3x text-success mb-3"></i>
-                            <h5 class="card-title fw-bold">Harga Kompetitif</h5>
-                            <p class="card-text">Nikmati paket internet *unlimited* dengan harga bulanan yang ringan dan transparan.</p>
-                        </div>
+                        <i class="fas fa-map-marker-alt fa-3x text-warning mb-3"></i>
+                        <h5 class="card-title fw-bold">Jaringan Terluas</h5>
+                        <p class="card-text text-muted">Jaringan fiber optik yang tersebar luas, siap melayani di banyak wilayah Indonesia.</p>
                     </div>
                 </div>
 
@@ -101,32 +105,20 @@
         </div>
     </section>
     
-    <footer class="footer-section">
+    <footer class="bg-dark text-white py-4" id="kontak">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 mb-3">
-                    <h5 class="text-warning">ICONNET</h5>
-                    <p>Layanan Internet Broadband dari ICON+ (anak perusahaan PLN) yang menyediakan internet berkecepatan tinggi dengan harga terjangkau.</p>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <h5>Link Cepat</h5>
+                <div class="col-md-6">
+                    <h5 class="text-warning mb-3">Hubungi Kami (Admin Pendaftaran)</h5>
                     <ul class="list-unstyled">
-                        <li><a href="index.html#layanan" class="text-decoration-none text-light">Layanan</a></li>
-                        <li><a href="Formulir.html" class="text-decoration-none text-light">Formulir Pendaftaran</a></li>
-                        <li><a href="#" class="text-decoration-none text-light">FAQ</a></li>
+                        <li><i class="fas fa-phone-alt me-2"></i> **Nomor HP/WA:** 08XXXXXXXXXX</li>
+                        <li><i class="fas fa-envelope me-2"></i> **Email:** admin@iconnet.com</li>
                     </ul>
                 </div>
-                <div class="col-md-3 mb-3">
-                    <h5>Kontak Kami</h5>
-                    <ul class="list-unstyled">
-                        <li><i class="fas fa-envelope me-2"></i> email@iconnet.com</li>
-                        <li><i class="fas fa-phone-alt me-2"></i> 08xxxxxxxxxx</li>
-                        <li><i class="fas fa-map-marker-alt me-2"></i> Kantor Pusat ICON+</li>
-                    </ul>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">&copy; 2024 ICONNET. Powered by PLN Icon Plus.</p>
+                    <small>Dibuat oleh Tim Penjualan [Nama Tim Anda]</small>
                 </div>
-            </div>
-            <div class="text-center pt-3 border-top border-secondary">
-                <p class="mb-0">&copy; 2024 ICONNET. Powered by PLN.</p>
             </div>
         </div>
     </footer>
