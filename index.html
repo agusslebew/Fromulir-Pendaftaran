@@ -3,123 +3,271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iconnet - Internet Cepat & Stabil Pilihan Anda</title>
+    <title>ICONNET - Internet Fiber Optik Tercepat PLN</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* CSS Tambahan untuk Home Page */
+        /* Variabel Warna */
+        :root {
+            --primary-color: #007bff; /* Biru PLN/Iconnet */
+            --secondary-color: #28a745; /* Hijau Sukses */
+            --warning-color: #ffc107; /* Kuning CTA */
+            --dark-color: #1a237e; /* Biru Gelap Header */
+        }
+
+        /* Hero Section yang Lebih Dinamis */
         .hero-section {
-            /* Menggunakan warna gradien dari brand Iconnet/PLN */
-            background: linear-gradient(135deg, #007bff 0%, #003c8f 100%); 
+            background: linear-gradient(135deg, var(--dark-color) 0%, var(--primary-color) 100%); 
             color: white;
-            padding: 100px 0;
-            min-height: 85vh;
+            padding: 120px 0 100px;
+            min-height: 90vh; /* Lebih tinggi */
             display: flex;
             align-items: center;
+            position: relative;
+            overflow: hidden; /* Mengatasi elemen di luar batas */
         }
+        
         .hero-title {
-            font-size: 3.5rem;
-            font-weight: 800;
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.1;
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
-        .features-section {
-            background-color: #f8f9fa;
+
+        /* Button Kontak Terapung (Sticky WhatsApp Button) */
+        .wa-sticky-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 1000;
+            background-color: #25D366; /* Warna WhatsApp */
+            border: none;
+            border-radius: 50px;
+            padding: 10px 20px;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
         }
+        .wa-sticky-btn:hover {
+            background-color: #1DA851;
+            transform: scale(1.05);
+        }
+
+        /* Feature Card Enhancement */
+        .feature-card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Shadow yang lebih halus */
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-8px); /* Efek naik lebih tinggi */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Styling untuk Daftar Harga */
+        .price-card {
+            border: 2px solid var(--primary-color);
+            border-radius: 15px;
+            transition: transform 0.3s;
+            overflow: hidden;
+        }
+        .price-card.recommended {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 25px rgba(40, 167, 69, 0.4);
+            transform: scale(1.05);
+        }
+        .price-header {
+            background-color: var(--primary-color); /* Default header color */
+            color: white;
+            padding: 20px;
+        }
+        .price-header.recommended {
+            background-color: var(--secondary-color); /* Recommended header color */
+        }
+        .price-value {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+        .price-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .price-card li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+        }
+
     </style>
 </head>
-<body>
+<body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="56">
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-lg">
         <div class="container">
             <a class="navbar-brand fw-bold" href="index.html">
                 <img src="logo/Iconnet_logo.png" alt="Iconnet Logo" height="30" class="d-inline-block align-text-top me-2">
+                <span class="text-white">ICONNET</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="#layanan">Layanan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#layanan">Fitur</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#paket">Paket</a></li>
                     <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-warning btn-sm ms-lg-2 px-4 fw-bold text-dark" href="Formulir.html">DAFTAR SEKARANG</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     
-    <header class="hero-section" id="hero">
-        <div class="container text-center text-lg-start">
+    <header class="hero-section text-center text-lg-start" id="hero">
+        <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-7">
-                    <h1 class="hero-title mb-3 animate__animated animate__fadeInLeft">
-                        Internet 100% Fiber Optik di Jaringan PLN
+                <div class="col-lg-8">
+                    <h1 class="hero-title mb-4">
+                        Internet Terbaik untuk Kebutuhan Digital Anda.
                     </h1>
-                    <p class="lead mb-4 fw-light">
-                        Koneksi super cepat, stabil, dan Tanpa FUP (Fair Usage Policy).
+                    <p class="lead mb-5 fw-light opacity-75">
+                        *True Unlimited, 100% Fiber Optik,* Jaringan Terluas dan Paling Andal dari PLN Icon Plus.
                     </p>
-                    <a href="Formulir.html" class="btn-cta mb-3 me-3">
-                        <i class="fas fa-bolt me-2"></i> DAFTAR SEKARANG
+                    <a href="Formulir.html" class="btn btn-warning cta-button-hero text-dark shadow-lg me-3">
+                        <i class="fas fa-rocket me-2"></i> CEK HARGA & DAFTAR
                     </a>
-                    <a href="#layanan" class="btn btn-outline-light btn-lg rounded-pill" style="padding: 18px 30px;">
-                        Mengapa?? <i class="fas fa-arrow-down ms-2"></i>
+                    <a href="https://wa.me/628xxxxxxxxxx" target="_blank" class="btn btn-outline-light cta-button-hero rounded-pill">
+                        <i class="fab fa-whatsapp me-2"></i> Tanya Admin (WA)
                     </a>
                 </div>
-                <div class="col-lg-5 text-center mt-5 mt-lg-0">
-                    <i class="fas fa-satellite-dish fa-10x text-white opacity-75"></i>
+                <div class="col-lg-4 d-none d-lg-block text-end">
+                    <i class="fas fa-wifi fa-10x text-white opacity-25"></i>
                 </div>
             </div>
         </div>
     </header>
 
-    <section id="layanan" class="features-section py-5">
+    <section id="trust" class="py-4 bg-white shadow-sm">
         <div class="container">
-            <h2 class="text-center mb-5 fw-bold text-dark">Mengapa Memilih ICONNET?</h2>
+            <div class="row text-center text-dark fw-bold">
+                <div class="col-md-4 py-2">
+                    <i class="fas fa-infinity fa-2x text-success me-2"></i> TRUE UNLIMITED
+                </div>
+                <div class="col-md-4 py-2">
+                    <i class="fas fa-bolt fa-2x text-warning me-2"></i> SUPER STABIL
+                </div>
+                <div class="col-md-4 py-2">
+                    <i class="fas fa-dollar-sign fa-2x text-primary me-2"></i> HARGA FLAT
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="layanan" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold text-dark">Mengapa ICONNET Pilihan Tepat?</h2>
             <div class="row text-center">
                 
                 <div class="col-lg-4 mb-4">
-                    <div class="card feature-card p-4 h-100 border-0 shadow-sm">
-                        <i class="fas fa-signal fa-3x text-success mb-3"></i>
-                        <h5 class="card-title fw-bold">Koneksi Stabil</h5>
-                        <p class="card-text text-muted">Didukung oleh jaringan PLN, menjamin uptime dan stabilitas terbaik untuk WFH dan gaming.</p>
+                    <div class="card feature-card p-4 h-100 bg-white">
+                        <i class="fas fa-upload fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title fw-bold">Upload Cepat (Simetris)</h5>
+                        <p class="card-text text-muted">Kecepatan Upload dan Download yang hampir sama, ideal untuk WFH, *video conference*, dan *live streaming*.</p>
                     </div>
                 </div>
                 
                 <div class="col-lg-4 mb-4">
-                    <div class="card feature-card p-4 h-100 border-0 shadow-sm">
-                        <i class="fas fa-infinity fa-3x text-danger mb-3"></i>
-                        <h5 class="card-title fw-bold">True Unlimited</h5>
-                        <p class="card-text text-muted">Bebas dari batasan kuota dan FUP yang menyebalkan. Streaming sepuasnya.</p>
+                    <div class="card feature-card p-4 h-100 bg-white">
+                        <i class="fas fa-map-marked-alt fa-3x text-success mb-3"></i>
+                        <h5 class="card-title fw-bold">Cakupan Luas</h5>
+                        <p class="card-text text-muted">Jaringan ICON+ terus berkembang luas, didukung infrastruktur kelistrikan PLN.</p>
                     </div>
                 </div>
                 
                 <div class="col-lg-4 mb-4">
-                    <div class="card feature-card p-4 h-100 border-0 shadow-sm">
-                        <i class="fas fa-map-marker-alt fa-3x text-warning mb-3"></i>
-                        <h5 class="card-title fw-bold">Jaringan Terluas</h5>
-                        <p class="card-text text-muted">Jaringan fiber optik yang tersebar luas, siap melayani di banyak wilayah Indonesia.</p>
+                    <div class="card feature-card p-4 h-100 bg-white">
+                        <i class="fas fa-hand-holding-usd fa-3x text-warning mb-3"></i>
+                        <h5 class="card-title fw-bold">Bebas Biaya Tersembunyi</h5>
+                        <p class="card-text text-muted">Tidak ada biaya tersembunyi. Bayar sesuai paket, termasuk PPN.</p>
                     </div>
                 </div>
 
             </div>
         </div>
     </section>
-    
+
+    <section id="paket" class="py-5 bg-white">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold text-dark">Paket Unggulan Bulan Ini</h2>
+            <div class="row justify-content-center">
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card price-card recommended text-center h-100 shadow-lg">
+                        <div class="price-header recommended bg-success">
+                            <h4 class="fw-normal">Iconnet 35 (BEST VALUE!)</h4>
+                            <span class="badge bg-light text-success mb-2">Paling Direkomendasikan</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="price-value text-success">Rp 220.000</div>
+                            <p class="text-muted">/ bulan (Sudah termasuk PPN)</p>
+                            <ul>
+                                <li><i class="fas fa-check-circle text-success me-2"></i> Kecepatan **35 Mbps**</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i> Unlimited tanpa FUP</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i> 4K Streaming Lancar</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i> Ideal untuk Keluarga Besar</li>
+                            </ul>
+                            <a href="Formulir.html" class="btn btn-success w-75 mt-3 cta-button-hero shadow-sm">PILIH & DAFTAR</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card price-card text-center h-100 shadow">
+                        <div class="price-header">
+                            <h4 class="fw-normal">Iconnet 50</h4>
+                            <span class="badge bg-light text-primary mb-2">Pilihan Cepat</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="price-value text-primary">Rp 276.000</div>
+                            <p class="text-muted">/ bulan (Sudah termasuk PPN)</p>
+                            <ul>
+                                <li><i class="fas fa-check-circle text-success me-2"></i> Kecepatan **50 Mbps**</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i> Unlimited tanpa FUP</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i> *Gaming* & Download Cepat</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i> Bonus *Install* Cepat</li>
+                            </ul>
+                            <a href="Formulir.html" class="btn btn-primary w-75 mt-3 cta-button-hero shadow-sm">PILIH & DAFTAR</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer class="bg-dark text-white py-4" id="kontak">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h5 class="text-warning mb-3">Hubungi Kami (Admin Pendaftaran)</h5>
+                    <h5 class="text-warning mb-3">Kontak Admin Pendaftaran</h5>
                     <ul class="list-unstyled">
-                        <li><i class="fas fa-phone-alt me-2"></i> Nomor HP/WA: 08XXXXXXXXXX</li>
-                        <li><i class="fas fa-envelope me-2"></i> Email: admin@iconnet.com</li>
+                        <li><i class="fas fa-phone-alt me-2"></i> **Hubungi:** <a href="tel:08xxxxxxxxxx" class="text-white text-decoration-none">08XXXXXXXXXX</a></li>
+                        <li><i class="fab fa-whatsapp me-2"></i> **WhatsApp:** <a href="https://wa.me/628xxxxxxxxxx" target="_blank" class="text-white text-decoration-none">Klik untuk Chat</a></li>
                     </ul>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <p class="mb-0">&copy; 2025 ICONNET. Powered by PLN Icon Plus.</p>
-                    <small>Dibuat oleh Tim Magang Pride</small>
+                    <p class="mb-0">&copy; 2024 ICONNET. Tim Penjualan Resmi.</p>
+                    <div class="mt-2">
+                        <a href="admin.html" class="text-white-50 text-decoration-none small">Akses Admin</a>
+                    </div>
                 </div>
             </div>
         </div>
     </footer>
+    
+    <a href="https://wa.me/628xxxxxxxxxx" target="_blank" class="wa-sticky-btn text-white">
+        <i class="fab fa-whatsapp me-2 fa-lg"></i> Chat Admin
+    </a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
