@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Data Pendaftaran Iconnet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body class="bg-light">
+    
+    <div class="container-fluid my-4">
+
+        <div id="loginCard" class="card shadow-lg p-5 mx-auto" style="max-width: 400px;">
+            <h4 class="text-center text-primary mb-4"><i class="fas fa-lock me-2"></i> Akses Admin Dashboard</h4>
+            <form id="loginForm">
+                <div class="mb-3">
+                    <label for="adminPass" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="adminPass" required>
+                    <div id="passwordError" class="mt-2 text-danger small" style="display: none;">Password salah. Akses ditolak.</div>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Masuk</button>
+            </form>
+        </div>
+
+
+        <div id="adminContent" style="display: none;"> 
+            <div class="card shadow-sm p-4">
+                <h2 class="text-primary mb-3"><i class="fas fa-user-shield me-2"></i> Admin Dashboard - Data Pendaftaran</h2>
+                <p class="text-muted">Daftar semua pendaftaran Iconnet yang masuk melalui formulir pelanggan.</p>
+                
+                <hr>
+
+                <div id="loading" class="text-center my-5">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p class="mt-2">Memuat data dari database...</p>
+                </div>
+
+                <div class="table-responsive" style="max-height: 80vh; overflow-y: auto;">
+                    <table class="table table-striped table-hover table-sm">
+                        <thead class="table-primary sticky-top">
+                            <tr>
+                                <th>#</th>
+                                <th>Tanggal Masuk</th>
+                                <th>Nama KTP</th>
+                                <th>No. HP</th>
+                                <th>Email</th>
+                                <th>Paket</th>
+                                <th>Kecepatan</th>
+                                <th>Alamat Pemasangan</th>
+                                <th>Keluarga (HP)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dataBody">
+                            </tbody>
+                    </table>
+                </div>
+                
+                <div id="errorMessage" class="alert alert-danger mt-3" style="display: none;">
+                    Gagal memuat data. Periksa koneksi atau izin database.
+                </div>
+
+                <button class="btn btn-sm btn-outline-secondary mt-3" onclick="loadRegistrations()">
+                    <i class="fas fa-sync-alt me-2"></i> Refresh Data
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="script_admin.js"></script> 
+</body>
+</html>
