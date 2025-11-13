@@ -1,14 +1,9 @@
-// Menggunakan Supabase client yang sama
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
-
-// GANTI DENGAN KREDENSIAL SUPABASE ANDA
 const SUPABASE_URL = "https://gjkriltrssjglxqvhauj.supabase.co";  
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdqa3JpbHRyc3NqZ2x4cXZoYXVqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAyODE2NjcsImV4cCI6MjA3NTg1NzY2N30.8ixU45P5K-u3bjOPUycf6F3Har17hUzJM46jhgMGYeU";        
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-// --- PASSWORD ADMIN SEMENTARA ---
-const ADMIN_PASSWORD = "1"; // PASTIKAN PASSWORD INI SESUAI DENGAN YANG ANDA ATUR
-// --------------------------------
+const ADMIN_PASSWORD = "1"; 
 
 const dataBody = document.getElementById('dataBody');
 const loading = document.getElementById('loading');
@@ -19,7 +14,7 @@ const loginCard = document.getElementById('loginCard');
 const passwordError = document.getElementById('passwordError');
 
 
-// Fungsi utama untuk memuat data dari Supabase
+
 async function loadRegistrations() {
     dataBody.innerHTML = ''; 
     loading.style.display = 'block';
@@ -69,14 +64,13 @@ async function loadRegistrations() {
 }
 
 
-// --- LOGIKA LOGIN (Password Sederhana) ---
+
 function handleLogin(e) {
     e.preventDefault();
     const input = document.getElementById('adminPass');
     const password = input.value;
 
     if (password === ADMIN_PASSWORD) {
-        // Login Sukses
         input.classList.remove('is-invalid');
         loginCard.style.display = 'none';
         adminContent.style.display = 'block';
@@ -84,15 +78,11 @@ function handleLogin(e) {
         
         loadRegistrations(); 
     } else {
-        // Login Gagal
         input.classList.add('is-invalid');
         passwordError.style.display = 'block';
     }
 }
 
-// =========================================================
-// DOM READY
-// =========================================================
 document.addEventListener('DOMContentLoaded', () => {
     if (loginForm) {
         loginForm.addEventListener('submit', handleLogin);

@@ -38,7 +38,6 @@ const prices = {
     'Iconnet Seru-3 100Mbps': { '100Mbps': 1086690 }
 };
 
-// agar harganya bisa berfungsi
 function getPrice(jenisPaket, kecepatan) {
     if (!jenisPaket) return null;
     
@@ -85,7 +84,7 @@ function calculatePrice() {
 
     if (!hargaDisplay || !totalBiayaDisplay || !totalBiayaElement) return;
 
-    // Reset display
+    
     hargaDisplay.innerHTML = '<small class="text-muted">Pilih paket untuk lihat harga.</small>';
     totalBiayaDisplay.style.display = 'none';
 
@@ -109,7 +108,6 @@ function calculatePrice() {
         return;
     }
 
-    // ini buat format rupiahnya
     const formatter = new Intl.NumberFormat('id-ID', { minimumFractionDigits: 0 });
     const formattedTotal = formatter.format(priceInfo.total);
     const formattedPerBulan = formatter.format(priceInfo.perBulan);
@@ -118,12 +116,11 @@ function calculatePrice() {
     const formattedTotalPembayaranPertama = formatter.format(totalBiayaPembayaranPertama);
     const formattedInstallation = formatter.format(priceInfo.installation);
 
-    // ini kosong karena semua output akan ke totalBiayaDisplay
+
     hargaDisplay.innerHTML = ''; 
 
 
     if (jenisPaket.includes('Iconnet Seru')) {
-        // Tampilan untuk paket Seru: Merinci Harga Paket + Instalasi (Bayar atau Gratis)
         
         let instalasiDetail = priceInfo.installation > 0 
             ? `Biaya Instalasi: Rp ${formattedInstallation}` 
@@ -141,13 +138,11 @@ function calculatePrice() {
             </small>
         `;
     } else {
-        // Tampilan untuk paket Reguler/Hebat: HANYA Total Bayar dan Per Bulan 
-        
+
         let durasiLabel = priceInfo.durasi > 1 
             ? `Total (${priceInfo.durasi} bln)` 
             : `Total (1 bln)`;
         
-        // Menggunakan formattedPerBulan di sini untuk memastikan nilai per bulan ditampilkan
         let perBulanLabel = priceInfo.durasi > 1 
             ? `<span class="text-muted"></span>`
             : '';
@@ -158,10 +153,10 @@ function calculatePrice() {
         `;
     }
     
-    totalBiayaDisplay.style.display = 'block'; // ini untuk menampilkan totalBiayaDisplay
+    totalBiayaDisplay.style.display = 'block';
 }
 
-// TOAST Notifikasinya
+
 function showToast(type, msg) {
     if (typeof bootstrap === 'undefined' || typeof bootstrap.Toast === 'undefined') {
         console.error("Bootstrap JavaScript tidak terdeteksi. Toast tidak dapat ditampilkan.");
@@ -178,7 +173,6 @@ function showToast(type, msg) {
     toast.show();
 }
 
-// Validasi Formnya
 function validateField(input) {
     const value = input.value.trim();
     const isRequired = input.hasAttribute('required');
@@ -218,7 +212,6 @@ function handlePackageSelection() {
     const selectedOption = jenisPaketSelect?.options[jenisPaketSelect.selectedIndex];
     
 
-    // menampilkan/menyembunyikan dropdown kecepatan
     if (selectedOption && selectedOption.value.includes('Iconnet Seru')) {
         kecepatanContainer.style.display = 'none';
         kecepatanSelect.removeAttribute('required');

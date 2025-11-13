@@ -8,15 +8,12 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Variabel Warna */
         :root {
-            --primary-color: #007bff; /* Biru PLN/Iconnet */
-            --secondary-color: #28a745; /* Hijau Sukses */
-            --warning-color: #ffc107; /* Kuning CTA */
-            --dark-color: #1a237e; /* Biru Gelap Header */
+            --primary-color: #007bff; 
+            --secondary-color: #28a745; 
+            --warning-color: #ffc107; 
+            --dark-color: #1a237e; 
         }
-
-        /* Hero Section yang Lebih Dinamis */
         .hero-section {
             background: linear-gradient(135deg, var(--dark-color) 0%, var(--primary-color) 100%); 
             color: white;
@@ -34,14 +31,12 @@
             line-height: 1.1;
             text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
-
-        /* Button Kontak Terapung (Sticky WhatsApp Button) */
         .wa-sticky-btn {
             position: fixed;
             bottom: 25px;
             right: 25px;
             z-index: 1000;
-            background-color: #25D366; /* Warna WhatsApp */
+            background-color: #25D366; 
             border: none;
             border-radius: 50px;
             padding: 10px 20px;
@@ -54,7 +49,6 @@
             transform: scale(1.05);
         }
 
-        /* Feature Card Enhancement */
         .feature-card {
             border: none;
             border-radius: 12px;
@@ -66,7 +60,6 @@
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
         
-        /* Styling untuk Button CTA di Hero dan Harga (Desktop Default) */
         .cta-button-hero {
             padding: 18px 50px; 
             font-size: 1.3rem; 
@@ -80,7 +73,6 @@
         }
 
 
-        /* Styling untuk Daftar Harga */
         .price-card {
             border: 2px solid var(--primary-color);
             border-radius: 15px;
@@ -121,7 +113,6 @@
             border-bottom: 1px dashed #eee;
         }
 
-        /* Testimonial Card Styling */
         .testimonial-card {
             border: 1px solid #e0e0e0;
             border-radius: 12px;
@@ -138,24 +129,18 @@
             border-radius: 50%;
             padding: 1rem;
         }
-        
-        /* ========================================================= */
-        /* MEDIA QUERY UNTUK MOBILE (PERBAIKAN TOMBOL HERO) */
-        /* ========================================================= */
         @media (max-width: 576px) {
             .hero-title {
-                font-size: 2.5rem; /* Mengecilkan Judul */
+                font-size: 2.5rem; 
             }
             .cta-button-hero {
-                /* Mengurangi padding dan font size secara drastis */
                 padding: 12px 30px; 
                 font-size: 1.1rem;
-                width: 90%; /* Membuat tombol sedikit lebih sempit */
-                display: block; /* Memastikan tombol menjadi blok (lebar penuh) */
-                margin: 10px auto; /* Memberi jarak antar tombol */
+                width: 90%;
+                display: block; 
+                margin: 10px auto; 
             }
             .hero-section .row {
-                /* Memberi sedikit margin agar konten tidak terlalu menempel atas/bawah */
                 padding: 0 15px; 
             }
         }
